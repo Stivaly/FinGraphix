@@ -1,0 +1,14 @@
+{% extends 'fingraphixapp/base.html' %}
+{% load static %}
+{% block title %}Sesión Cerrada | FinGraphix{% endblock %}
+{% block content %}
+
+<div class="container d-flex justify-content-center">  
+  <div class="shadow p-3 mb-5 bg-white rounded w-50" style="margin-top: 150px;">
+    <div class="alert alert-success" role="alert">
+      <h2>¡Sesión cerrada!</h2>
+      <a href="{% url 'login'%}">Haz click aquí para ingresar nuevamente</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
