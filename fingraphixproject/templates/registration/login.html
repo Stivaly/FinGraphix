@@ -3,14 +3,14 @@
 {% block title %}Iniciar Sesión | FinGraphix{% endblock %}
 {% block content %}
 
-<div class="container d-flex justify-content-center">  
-    <div class="shadow p-3 bg-white rounded w-50 text-center" style="margin-top: 150px;">
+<div class="container d-flex justify-content-center">
+    <div class="shadow p-3 bg-white rounded w-50 text-center" style="margin-top: 150px; min-width: 320px !important;">
         <img src="{% static 'assets/images/heading-line-dec.png' %}" height="3">
         <h2>Acceso Aplicación</h2>
         {% if form.errors %}
             <p>Tu nombre de usuario y contraseña no coinciden. Por favor, inténtelo de nuevo.</p>
         {% endif %}
-    
+
         {% if next %}
             {% if user.is_authenticated %}
             <p>Su cuenta no tiene acceso a esta página. Para continuar,
@@ -24,7 +24,7 @@
             <br>
             Contraseña: Demo1234.
         </div>
-    
+
         <form method="post" action="{% url 'login' %}" class="form-group">
             {% csrf_token %}
             <div class="form-group"><br>
@@ -35,15 +35,15 @@
             </div>
             <button type="submit" class="btn btn-primary mt-3">Iniciar Sesión</button>
         </form>
-    
+
         {# Assumes you setup the password_reset view in your URLconf #}
         <p class="mt-3"><a href="{% url 'password_reset' %}">¿Olvidaste la contraseña?</a></p>
         <p class="mt-3">¿No tienes cuenta? <a href="{% url 'register' %}">Regístrate</a></p>
     </div>
-
+</div>
+<div class="container d-flex justify-content-center mt-4">
     <div>
-        Si deseas probar el funcionamiento del registro y su seguridad, puedes hacerlo también registrando tu usuario, se enviara un correo a tu bandeja con la con
+        Si deseas probar el funcionamiento del registro y su seguridad, puedes hacerlo también registrando tu usuario, se enviara un correo a tu bandeja con la configuración
     </div>
 </div>
-
 {% endblock %}
