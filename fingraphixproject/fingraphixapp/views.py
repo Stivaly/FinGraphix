@@ -12,8 +12,10 @@ from django.urls import reverse_lazy
 from .charts import get_ingresos_por_dia, get_salidas_por_dia, get_balance_por_mes
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from dotenv import load_dotenv
 
 locale.setlocale(locale.LC_TIME, 'es_CL.UTF-8')
+load_dotenv()
 
 def get_current_month_context(request=None):
     now = datetime.now()
@@ -110,7 +112,7 @@ def balance(request):
 
 @login_required
 def mostrar_noticias(request):
-    api_key = "5515dfeaf4244d40913308e4277a2669"
+    api_key = os.getenv("API_KEY")
     url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=" + api_key
     
     try:
